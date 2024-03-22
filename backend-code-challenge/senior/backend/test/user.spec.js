@@ -10,13 +10,13 @@ const {
   API: { KEY },
 } = require('../src/config');
 
-describe.skip('User Resource', () => {
+describe('User Resource', () => {
   let database = null;
   let server = null;
 
   let agent = null;
 
-  beforeAll(async () => {
+  beforeAll.skip(async () => {
     database = require('./helpers/database');
     await database.start();
     server = require('../src/server');

@@ -17,7 +17,7 @@ const {
   },
 } = require('../../config');
 
-describe.skip('Authentication Milestone', () => {
+describe('Authentication Milestone', () => {
   const slug = 'c2VuaW9yLWNhbmRpZGF0ZQ==';
   const mockHeader = jest.fn();
 
@@ -45,7 +45,6 @@ describe.skip('Authentication Milestone', () => {
     authentication(req, res, context);
     expect(mockHeader).toHaveBeenCalledTimes(0);
   });
-
 
   test('should return context continue (with myself slug)', () => {
     const result = authentication(req, res, context);
