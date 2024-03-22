@@ -32,7 +32,7 @@ module.exports = (req, res, context) => {
     throw new BadRequestError('Invalid x-slug format (String expected)');
   }
 
-  // Fetch the user object based on the decoded slug
+  // // Fetch the user object based on the decoded slug
   const user = getUserBySlug(decodedSlug);
 
   // Handle cases where the user is not found or there's an error
@@ -41,6 +41,13 @@ module.exports = (req, res, context) => {
   } else if (user instanceof Error) {
     throw user;
   }
+
+  // Simulate user identification based on the decoded slug 
+  const identifiedUser = decodedSlug === MYSELF ? user : null;
+
+  // Attach the identified user to the context
+  context.user = identifiedUser;
+
 
   // Attach the identified user to the context
   context.user = user;
